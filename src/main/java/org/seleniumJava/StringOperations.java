@@ -30,8 +30,57 @@ public class StringOperations {
 
        //  s.swapCharPair("GeeksForGeeks");
 
-        s.anagram("silent", "listen");
+       //  s.anagram("silent", "listen");
+
+      //   s.pangram("Abcdefghijklmnopqrstuvwxyz");
+        // s.remove0FromString("00000123569");
+
+       //  s.printEvenLength("i am Geeks for Geeks and a Geek");
+        s.insertString("GeeksGeeks", "For", 5);
     }
+
+    // Java program to print Even length words in a String
+    public void printEvenLength(String str){
+        for (String words : str.split(" ")) {
+            if (words.length() % 2 ==0)
+                System.out.print(words+ " ");
+            }
+        }
+
+        // Insert a String into another String in Java
+    public void insertString(String str1, String str2, int index){
+        // Create a new String
+        String newString = str1.substring(0, index) + str2 + str1.substring(index);
+        System.out.println(newString);
+    }
+
+//    Remove Leading Zeros From String in Java using string builder
+    public void remove0FromString(String str){
+        int i=0;
+        StringBuilder stringBuilder = new StringBuilder(str);
+        while (i < str.length() && str.charAt(i) == '0')
+            i++;
+        stringBuilder.replace(0, i, "");
+        System.out.println(stringBuilder);
+    }
+
+    // Check if a given string is Pangram in Java
+    public void pangram(String str){
+        str = str.toLowerCase();
+        boolean isPangram = true;
+        for (char a ='a'; a <='z'; a++){
+            if(!str.contains(String.valueOf(a))){
+                isPangram = false;
+                break;
+            }
+        }
+        if (isPangram){
+            System.out.println("string is pangram ");
+        } else {
+            System.out.println("string is not pangram ");
+        }
+    }
+
 
     // Java Program to Get a Character from a String
     // Input: str = "Geeks", index = 2
@@ -96,8 +145,5 @@ public class StringOperations {
         }
     }
 
-    // Check if a given string is Pangram in Java
-    public void pangram(){
 
-    }
 }
