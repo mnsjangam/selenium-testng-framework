@@ -130,7 +130,54 @@ public class PractiseCode {
         // practiseCode.arrayCopy(a);
 
        //  practiseCode.leftRotateArray1time(a);
-        practiseCode.leftRotateArray2times(a);
+        // practiseCode.leftRotateArray2times(a);
+       //  practiseCode.addElements();
+
+       //  practiseCode.findCommonElements();
+        practiseCode.removeRepeatedElements();
+    }
+
+    // Remove repeated elements from ArrayList in Java
+    public void removeRepeatedElements(){
+        ArrayList<String> gfg = new ArrayList<String>();
+        // Initialize an ArrayList
+        gfg.add("Geeks");
+        gfg.add("for");
+        gfg.add("Geeks");
+
+        Set<String> set = new HashSet<>(gfg);
+
+        ArrayList<String> gfg1 = new ArrayList<>(set);
+        System.out.println(gfg1);
+    }
+
+    // How to Add Element at First and Last Position of LinkedList in Java?
+    public void addElements(){
+        LinkedList<String> linkedList = new LinkedList<>();
+        linkedList.add("e");
+        linkedList.add("e");
+        linkedList.add("k");
+
+        linkedList.addFirst("G");
+        linkedList.addLast("s");
+        System.out.println(linkedList);
+    }
+
+    // Find common elements in two ArrayLists in Java
+    public void findCommonElements(){
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("Hii");
+        list1.add("Geeks");
+        list1.add("for");
+        list1.add("Geeks");
+
+        ArrayList<String> list2 = new ArrayList<>();
+        list2.add("Hii");
+        list2.add("Geeks");
+        list2.add("Gaurav");
+
+        list1.retainAll(list2);
+        System.out.println(list1);
     }
 
     // Java Program to Left Rotate the Elements of an Array
