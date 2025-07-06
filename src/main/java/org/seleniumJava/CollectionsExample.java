@@ -11,7 +11,14 @@ public class CollectionsExample {
 //        collections.linkedSetEg();
 
 //        collections.setEg();
-        collections.hashMapEg();
+//        collections.hashMapEg();
+
+//        collections.mapOperations();
+
+//        collections.mapOps();
+//        collections.forEachMap();
+
+        collections.mapIterator();
     }
 
     public void stackEg(){
@@ -56,6 +63,64 @@ public class CollectionsExample {
 
         for (Map.Entry<Integer, String> entry : map.entrySet()){
             System.out.println(entry.getKey() + " value " +entry.getValue() + " ");
+        }
+    }
+
+    public void mapOperations(){
+        Map<String, String> m = new HashMap<>();
+        m.put("GFG", "geeksforgeeks.org");
+        m.put("Practice", "practice.geeksforgeeks.org");
+        m.put("Code", "code.geeksforgeeks.org");
+        m.put("Quiz", "www.geeksforgeeks.org");
+
+        for (Map.Entry<String, String> entry : m.entrySet()) {
+            System.out.println(entry.getKey() +" value for "+entry.getValue());
+        }
+    }
+
+    public void mapOps(){
+        Map<String,String> m = new HashMap<String,String>();
+
+        // enter name/url pair
+        m.put("GFG", "geeksforgeeks.org");
+        m.put("Practice", "practice.geeksforgeeks.org");
+        m.put("Code", "code.geeksforgeeks.org");
+        m.put("Quiz", "www.geeksforgeeks.org");
+
+        for (String s : m.keySet()){
+            System.out.println(s+ " keys");
+        }
+
+        for (String s : m.values()){
+            System.out.println(s+ " values");
+        }
+    }
+
+    public void forEachMap() {
+        Map<String,String> m = new HashMap<String,String>();
+
+        // enter name/url pair
+        m.put("GFG", "geeksforgeeks.org");
+        m.put("Practice", "practice.geeksforgeeks.org");
+        m.put("Code", "code.geeksforgeeks.org");
+        m.put("Quiz", "www.geeksforgeeks.org");
+
+        m.forEach((k, v) -> System.out.println(k + " " + v));
+    }
+
+    public void mapIterator() {
+        Map<String, String> map = new HashMap<>();
+
+        // enter name/url pair
+        map.put("GFG", "geeksforgeeks.org");
+        map.put("Practice", "practice.geeksforgeeks.org");
+        map.put("Code", "code.geeksforgeeks.org");
+        map.put("Quiz", "www.geeksforgeeks.org");
+
+        Iterator<Map.Entry<String, String>> iterator = map.entrySet().iterator();
+        while (iterator.hasNext()){
+            Map.Entry<String, String> entry = iterator.next();
+            System.out.println(entry.getKey() + " " + entry.getValue());
         }
     }
 }
