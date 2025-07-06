@@ -1,7 +1,5 @@
 package org.seleniumJava;
 
-import com.google.common.base.Strings;
-
 import java.util.*;
 
 public class MorePractise {

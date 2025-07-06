@@ -15,9 +15,7 @@ public class ListToMap {
         Student student2 = new Student("Bob", "Lakeview");
         Student student3 = new Student("Charlie", "Charlotte");
 
-        List<Student> list = new ArrayList<Student>();
-
-        Map<Student, Integer> map = new HashMap<Student, Integer>();
+        Map<Student, Integer> map = new HashMap<>();
         map.put(student1, 1);
         map.put(student2, 2);
         map.put(student3, 3);
