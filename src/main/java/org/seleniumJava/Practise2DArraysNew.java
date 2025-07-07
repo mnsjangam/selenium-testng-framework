@@ -21,9 +21,11 @@ public class Practise2DArraysNew {
                 { 24, 64, 20, 65 } };
        // p.largestElementInRow(m);
 
-        p.smallestElementInEachRow(m);
+//        p.smallestElementInEachRow(m);
 
+//        p.sortElementsInRow(m);
 
+        p.sortElementsInColumn(m);
     }
 
     // Java Program to Print the 2D Array
@@ -71,6 +73,24 @@ public class Practise2DArraysNew {
                 }
             }
             System.out.println("Min value from current column = "+temp);
+        }
+    }
+
+    public void sortElementsInRow(int[][] a){
+        for (int i=0; i<a.length; i++){
+            Arrays.sort(a[i]);
+            System.out.println("Sorted row "+i+" = "+ Arrays.toString(a[i]));
+        }
+    }
+
+    public void sortElementsInColumn(int[][] a){
+            for (int j=0; j<a[0].length; j++){
+                int[] col = new int[a.length];
+                for (int i=0; i<a.length; i++) {
+                    col[i] = a[i][j];
+                    Arrays.sort(col);
+                    System.out.println("Sorted column " + Arrays.toString(a[j]));
+            }
         }
     }
 }
