@@ -1,9 +1,6 @@
 package org.seleniumJava;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class PractiseProblems {
 
@@ -19,10 +16,181 @@ public class PractiseProblems {
 
 //        obj.equilibriumIndex();
 
-        obj.containsDuplicate();
+//        obj.containsDuplicate();
+
+        // obj.productExceptSelf();
+
+        char[] chars = {'a', 'd', 'g', 'a', 'g', 'a', 'g', 'f', 'g'};
+//        obj.pairSmallestSubArray(chars);
+
+//        obj.allSubArrays();
+        int[] A = {1, 3, 2};
+//        obj.solve(A);
+
+//        obj.twoDSubarrays(A);
+
+        obj.maxSubarray();
+    }
+
+    // Pick from both sides!
+    //Unsolved
+    //feature icon
+    //Using hints except Complete Solution is Penalty free now
+    //Use Hint
+    //Problem Description
+    //
+    //You are given an integer array A of size N.
+    //
+    //You have to perform B operations. In one operation, you can remove either the leftmost or the rightmost element of the array A.
+    //
+    //Find and return the maximum possible sum of the B elements that were removed after the B operations.
+    //
+    //NOTE: Suppose B = 3, and array A contains 10 elements, then you can:
+    //
+    //Remove 3 elements from front and 0 elements from the back, OR
+    //Remove 2 elements from front and 1 element from the back, OR
+    //Remove 1 element from front and 2 elements from the back, OR
+    //Remove 0 elements from front and 3 elements from the back.
+
+
+//    You are given an integer array C of size A. Now you need to find a subarray
+//            (contiguous elements)
+//    so that the sum of contiguous elements is maximum.
+//    But the sum must not exceed B.
+    public int maxSubarray() {
+        int A = 5;
+        int B = 12;
+        ArrayList<Integer> C = new ArrayList<>(Arrays.asList(2, 1, 3, 4, 5));
+
+        int maxSum = 0;
+
+        for (int start =0; start<A; start++){
+            for (int end= start; end<A; end++){
+                int sum =0;
+                for (int k=start; k<=end; k++){
+                    sum += C.get(k);
+                    if (sum > B){
+                        break; // If sum exceeds B, no need to continue
+                    }
+                }
+                maxSum = Math.max(sum, maxSum);
+            }
+        }
+        System.out.println("Maximum subarray sum not exceeding B: " + maxSum);
+        return maxSum;
     }
 
 
+    // Generate all subarrays
+    public int[][] twoDSubarrays(int[] A) {
+        int n = A.length;
+        int[][] B = new int[n][n];
+
+        for (int start=0; start<n; start++){
+            for (int end=start; end<n; end++){
+                for (int k= start; k<= end; k++){
+                    B[start][end] = A[k];
+                }
+            }
+        }
+        System.out.println("2D Subarrays: " + Arrays.deepToString(B));
+        return B;
+    }
+
+     //  Closest Subarray from MinMax
+    public int solve(int[] A) {
+        int n= A.length;
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        int minIndex=-1, maxIndex=-1;
+        int ans = Integer.MAX_VALUE;
+        for (int i: A){
+            max = Math.max(max, i);
+            min = Math.min(min, i);
+        }
+        for (int i=0; i<A.length; i++) {
+            if (A[i] == max) {
+                maxIndex = Math.max(maxIndex, i);
+            }
+            if (A[i] == min) {
+                minIndex = Math.max(minIndex, i);
+            }
+
+            if (minIndex != -1 && maxIndex != -1) {
+                int len = Math.abs(minIndex - maxIndex) + 1;
+                ans = Math.min(ans, len);
+            }
+        }
+        System.out.println("Minimum length of subarray containing min and max: " + ans);
+            return ans;
+    }
+
+    // Generate all possible subArrays
+    public void allSubArrays() {
+        int[] a = {1, 2, 3, 4};
+        for (int start=0; start < a.length; start++) {
+            for (int end=start; end < a.length; end++) {
+                for (int i=start; i<=end; i++) {
+                    System.out.print(a[i]+" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+
+
+    public long solve(String A) {
+        long count=0;
+        int n = A.length();
+        for (int i=0; i<n; i++) {
+            if (A.charAt(i) == 'A'){
+                for (int j = i+1; j<n; j++){
+                    if (A.charAt(j) == 'G'){
+                        count++;
+                    }
+                }
+            }
+        }
+        return count;
+    }
+
+    public void pairSmallestSubArray(char[] A){
+        int n = A.length;
+        int count =0;
+        for (int i=0; i< n; i++) {
+            if (A[i] == 'a'){
+                for (int j=i+1; j<n; j++){
+                    if (A[j] == 'g'){
+                        count++;
+                    }
+                }
+            }
+        }
+        System.out.println(count);
+    }
+
+    // TODO
+    public int[] productExceptSelf() {
+        int[] nums = {1, 2, 3, 4};
+        int n = nums.length;
+        int[] answer = new int[n];
+
+        int prefix =1, suffix = 1;
+        Arrays.fill(answer, prefix);
+
+        for (int i=0; i<nums.length; i++){
+            prefix *= nums[i];
+            answer[i] = prefix;
+            System.out.println(Arrays.toString(answer));
+        }
+
+        for (int i=nums.length -1; i >=0; i--){
+            answer[i] *= suffix;
+            suffix *= nums[i];
+        }
+        System.out.println(Arrays.toString(answer));
+        return answer;
+    }
 
     public void prefixSum(){
         int[] arr = {1, 2, 3, 4, 5};
