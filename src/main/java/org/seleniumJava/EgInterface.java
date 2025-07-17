@@ -2,7 +2,7 @@ package org.seleniumJava;
 
 public interface EgInterface {
 
-    public void printFun();
+    void printFun();
 
     public int sum(int a, int b);
 

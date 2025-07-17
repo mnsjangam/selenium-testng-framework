@@ -27,13 +27,30 @@ public class ListRotation {
         my_list.add(60);
         my_list.add(70);
 
+       // List Before Rotation: [10, 20, 30, 40, 50, 60, 70]
+//        List After Rotation: [40, 50, 60, 70, 10, 20, 30]
+
+        List<Integer> new_list= new ArrayList<>();
+        for (int i=0; i<=2; i++) {
+            new_list.add(my_list.get(i));
+        }
+
+//        int k=0;
+//        for (int i=3; i<my_list.size(); i++) {
+//            my_list.set(k, my_list.get(i));
+//            k++;
+//        }
+//
+//        for (int i=0; i<new_list.size(); i++) {
+//            my_list.set(k, new_list.get(i));
+//        }
         System.out.println("List Before Rotation: "+my_list);
 
         // Rotating the list at distance -3
         Collections.rotate(my_list, -4);
         // Output of this is - 
 //        List Before Rotation: [10, 20, 30, 40, 50, 60, 70]
-//        List After Rotation: [50, 60, 70, 10, 20, 30, 40]
+//        List After Rotation: [40, 50, 60, 70, 10, 20, 30]
 
 //        List<Integer> temp = new ArrayList<>();
 //        for (int i=0; i<=2; i++){

@@ -562,7 +562,6 @@ public class PractiseCode {
         System.out.println("Factorial for "+n +" "+fact);
     }
 
-
     //isArmStrong number
     public void isArmStrong(int n){
         // int temp = n;
@@ -583,7 +582,6 @@ public class PractiseCode {
             } else
                 System.out.println("Not Arm Strong");
         }
-
     }
 
     public void isLeapYear(int n){
